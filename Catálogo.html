@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo - Carta KeVendo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Lexend', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#b5413c] text-white">
+  <div class="max-w-6xl mx-auto mt-10 p-8 rounded-2xl border border-red-100 bg-[#d2564b] shadow-lg">
+
+    <!-- HEADER -->
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-bold">Catálogo de Cartas</h1>
+      <nav class="mt-4 space-x-4">
+        <a href="Inicio.html" class="hover:underline">Inicio</a>
+        <a href="#" class="bg-white text-[#b5413c] font-semibold px-4 py-2 rounded-full hover:bg-rose-200 transition">Catálogo</a>
+        <a href="https://wa.me/943387129" target="_blank" class="hover:underline">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- FILTROS -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Filtrar Cartas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <input id="filtro-nombre" type="text" placeholder="Buscar por nombre" class="p-2 rounded text-black" />
+        <select id="filtro-rareza" class="p-2 rounded text-black">
+          <option value="">Filtrar por Rareza</option>
+          <option>Common</option>
+          <option>Rare</option>
+          <option>Double Rare</option>
+          <option>Ultra Rare</option>
+          <option>Art Rare</option>
+          <option>Special Art Rare</option>
+        </select>
+        <select id="filtro-idioma" class="p-2 rounded text-black">
+          <option value="">Filtrar por Idioma</option>
+          <option>Inglés</option>
+          <option>Español</option>
+          <option>Japonés</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- CARTAS -->
+    <section>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- Carta Individual -->
+        <div class="card bg-white text-black rounded-xl p-4 shadow-lg" 
+             data-nombre="marnie's grimmsnarl ex" 
+             data-rareza="double rare" 
+             data-idioma="inglés">
+          <img src="marnie-grimmsnarl Eng.png" alt="Marnie's Grimmsnarl ex" class="w-full rounded mb-4">
+          <h3 class="text-xl font-bold mb-1">Marnie's Grimmsnarl ex</h3>
+          <p><span class="font-semibold">Rareza:</span> Double Rare</p>
+          <p><span class="font-semibold">Precio:</span> S/ 9</p>
+          <p><span class="font-semibold">Cantidad:</span> 2 Unidades</p>
+          <p><span class="font-semibold">Idioma:</span> Inglés</p>
+        </div>
+        <div class="card bg-white text-black rounded-xl p-4 shadow-lg" 
+             data-nombre="mewtwo ex del team rocket" 
+             data-rareza="double rare" 
+             data-idioma="español">
+          <img src="Mewtwo ex del Team Rocket Esp.png" alt="Mewtwo ex del Team Rocket" class="w-full rounded mb-4">
+          <h3 class="text-xl font-bold mb-1">Mewtwo ex del Team Rocket</h3>
+          <p><span class="font-semibold">Rareza:</span> Double Rare</p>
+          <p><span class="font-semibold">Precio:</span> S/ 10</p>
+          <p><span class="font-semibold">Cantidad:</span> 3 Unidades</p>
+          <p><span class="font-semibold">Idioma:</span> Español</p>
+        </div>
+        <div class="card bg-white text-black rounded-xl p-4 shadow-lg" 
+             data-nombre="team rocket's moltres ex" 
+             data-rareza="special art rare" 
+             data-idioma="inglés">
+          <img src="Team Rocket's Moltres ex Eng.png" alt="Team Rocket's Moltres ex" class="w-full rounded mb-4">
+          <h3 class="text-xl font-bold mb-1">Team Rocket's Moltres ex</h3>
+          <p><span class="font-semibold">Rareza:</span> Special Art Rare</p>
+          <p><span class="font-semibold">Precio:</span> S/ 470</p>
+          <p><span class="font-semibold">Cantidad:</span> 1 Unidad</p>
+          <p><span class="font-semibold">Idioma:</span> Inglés</p>
+        </div>
+        <div class="card bg-white text-black rounded-xl p-4 shadow-lg" 
+             data-nombre="Rotom" 
+             data-rareza="Art rare" 
+             data-idioma="Español">
+          <img src="Rotom Esp.png" alt="Rotom" class="w-full rounded mb-4">
+          <h3 class="text-xl font-bold mb-1">Rotom</h3>
+          <p><span class="font-semibold">Rareza:</span> Art Rare</p>
+          <p><span class="font-semibold">Precio:</span> S/ 17</p>
+          <p><span class="font-semibold">Cantidad:</span> 1 Unidad</p>
+          <p><span class="font-semibold">Idioma:</span> Español</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-12 text-center text-sm text-white opacity-80">
+      © 2025 Cartas KeVendo. Todos los derechos reservados.
+    </footer>
+  </div>
+
+  <!-- MODAL PARA VER IMAGEN EN GRANDE -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
+    <img id="modal-img" src="" alt="Carta grande" class="max-w-full max-h-full rounded shadow-lg border-4 border-white">
+  </div>
+
+  <!-- SCRIPT DE FILTRADO Y MODAL -->
+  <script>
+    const filtroNombre = document.getElementById('filtro-nombre');
+    const filtroRareza = document.getElementById('filtro-rareza');
+    const filtroIdioma = document.getElementById('filtro-idioma');
+    const cartas = document.querySelectorAll('.card');
+
+    function filtrarCartas() {
+      const nombre = filtroNombre.value.toLowerCase();
+      const rareza = filtroRareza.value.toLowerCase();
+      const idioma = filtroIdioma.value.toLowerCase();
+
+      cartas.forEach(carta => {
+        const nombreCarta = carta.dataset.nombre.toLowerCase();
+        const rarezaCarta = carta.dataset.rareza.toLowerCase();
+        const idiomaCarta = carta.dataset.idioma.toLowerCase();
+
+        const coincideNombre = nombreCarta.includes(nombre);
+        const coincideRareza = rareza === '' || rarezaCarta === rareza;
+        const coincideIdioma = idioma === '' || idiomaCarta === idioma;
+
+        if (coincideNombre && coincideRareza && coincideIdioma) {
+          carta.style.display = 'block';
+        } else {
+          carta.style.display = 'none';
+        }
+      });
+    }
+
+    filtroNombre.addEventListener('input', filtrarCartas);
+    filtroRareza.addEventListener('change', filtrarCartas);
+    filtroIdioma.addEventListener('change', filtrarCartas);
+
+    // Modal de imagen
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const imagenes = document.querySelectorAll('.card img');
+
+    imagenes.forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.remove('hidden');
+      });
+    });
+
+    modal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modalImg.src = '';
+    });
+  </script>
+</body>
+</html>
